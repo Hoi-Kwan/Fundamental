@@ -1,22 +1,6 @@
 import streamlit as st
 import pandas as pd
-import sys
-import subprocess
-
-try:
-    import yfinance as yf
-except ImportError:
-    # Attempt to install yfinance at runtime if it's missing
-    try:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "yfinance"])
-        import yfinance as yf
-    except Exception:
-        import streamlit as _st
-
-        _st.error(
-            "The 'yfinance' package is not installed and could not be installed automatically. Please install it manually: pip install yfinance"
-        )
-        raise
+import yfinance as yf
 
 # 0. page title
 st.title("Stock Market Data BI Dashboard")
