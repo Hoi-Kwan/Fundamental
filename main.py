@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
-import yfinance as yf
+
+# import yfinance as yf
 
 # 0. page title
 st.title("Stock Market Data BI Dashboard")
@@ -20,25 +21,25 @@ end_date = st.sidebar.date_input("End Date", today)
 st.write(f"**Stock Data for **{ticker}** from {start_date} to {end_date}")
 
 # 3. fetch data
-data = yf.download(ticker, start=start_date, end=end_date)
+# data = yf.download(ticker, start=start_date, end=end_date)
 
-if data.empty:
-    st.warning("No data found for the given ticker and date range.")
-    st.stop()
+# if data.empty:
+#     st.warning("No data found for the given ticker and date range.")
+#     st.stop()
 
 # 4. tabs
 tabs = st.tabs(["Data", "Visualization"])
 
 with tabs[0]:
     st.subheader("Raw Data")
-    st.dataframe(data.tail(10))
+    # st.dataframe(data.tail(10))
 
 with tabs[1]:
     st.subheader("Closing Price Chart")
-    st.line_chart(data["Close"])
+    # st.line_chart(data["Close"])
 
     st.subheader("Volume Chart")
-    st.bar_chart(data["Volume"])
+    # st.bar_chart(data["Volume"])
 
 
 # st.text("Hello, Streamlit!")
